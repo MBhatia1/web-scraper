@@ -119,7 +119,7 @@ while person != "exit":
     a = Artist(person)
     a.compileWorks(URL)
     a.returnStatistics()
-    a.topMovies
+    a.topMovies()
     a.graph()
     person = input("Would you like to continue? Type 'exit' to stop ")
     br.open("https://www.imdb.com/")
