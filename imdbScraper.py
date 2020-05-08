@@ -28,10 +28,14 @@ class Artist:
     def __init__(self, name):
         self.name = name
         self.ratings = []
+
+    """
     def opener(self,url):
         br.open(url)
         html = br.response().read()
         soup = BeautifulSoup(html, "html.parser")
+    """
+
     def compileWorks(self, URL):
         br.open(URL)
         html = br.response().read()
@@ -39,12 +43,14 @@ class Artist:
         director = soup.find_all(
             "div", id=lambda value: value and value.startswith(category)
         )
+        """
         oscar = soup.find("div", class_="article highlighted")
         if oscar != None:
             url = oscar.find("a")["href"]
             url = "https://www.imdb.com" + url
             br.open(url)
             html = 
+        """
         for result in director:
             title = result.find("a")
             url = result.find("a")["href"]
