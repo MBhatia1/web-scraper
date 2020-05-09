@@ -63,12 +63,12 @@ class Artist:
             soup = BeautifulSoup(html, "html.parser")
             rating = soup.find("span", itemprop="ratingValue")
             year = soup.find("span", id="titleYear")
-            # year = year.find("a")
-            # if year == None:
-            # continue
+            if year == None:
+                continue
+            year = year.find("a")
             if rating == None:
                 continue
-            tup = (float(rating.text), title.text)
+            tup = (float(rating.text), title.text, year.text)
             self.ratings.append(tup)
 
     def returnStatistics(self):
@@ -98,9 +98,9 @@ class Artist:
             years.append(rating[2])
         plt.tick_params(axis="x", which="major", labelsize=3)
         plt.figure(figsize=(15, 5))
-        plt.scatter(years, rat)
-        plt.xlabel("Rating")
-        plt.ylabel("Time")
+        plt.plot(years, rat)
+        plt.ylabel("Rating")
+        plt.xlabel("Time")
         plt.title("Scatterplot of " + self.name + "'s ratings")
         plt.show()
 
@@ -125,7 +125,7 @@ while person != "exit":
     a.compileWorks(URL)
     a.returnStatistics()
     a.topMovies()
-    # a.graph()
+    a.graph()
     person = input("Would you like to continue? Type 'exit' to stop ")
     br.open("https://www.imdb.com/")
     br._factory.is_html = True
