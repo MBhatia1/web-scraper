@@ -43,14 +43,17 @@ class Artist:
         director = soup.find_all(
             "div", id=lambda value: value and value.startswith(category)
         )
-        """
+
         oscar = soup.find("div", class_="article highlighted")
+        """
         if oscar != None:
             url = oscar.find("a")["href"]
             url = "https://www.imdb.com" + url
             br.open(url)
-            html = 
+            html = br.response().read()
+            soup = BeautifulSoup(html, "html.parser")
         """
+
         for result in director:
             title = result.find("a")
             url = result.find("a")["href"]
@@ -60,10 +63,12 @@ class Artist:
             soup = BeautifulSoup(html, "html.parser")
             rating = soup.find("span", itemprop="ratingValue")
             year = soup.find("span", id="titleYear")
-            year = year.find("a")
+            # year = year.find("a")
+            # if year == None:
+            # continue
             if rating == None:
                 continue
-            tup = (float(rating.text), title.text, year.text)
+            tup = (float(rating.text), title.text)
             self.ratings.append(tup)
 
     def returnStatistics(self):
@@ -120,7 +125,7 @@ while person != "exit":
     a.compileWorks(URL)
     a.returnStatistics()
     a.topMovies()
-    a.graph()
+    # a.graph()
     person = input("Would you like to continue? Type 'exit' to stop ")
     br.open("https://www.imdb.com/")
     br._factory.is_html = True
