@@ -18,6 +18,7 @@ After cloning the repository, simply run the following command:
  * mechanize (install with pip3 install mechanize)
  * matplotlib (install with pip3 install matplotlib)
  * cookiejar (install with pip3 install cookiejar)
+ * adjustText (install with pip3 install adjustText)
  * argparse (install with pip3 install argparse)  
  
  The Web scraper might take a while, especially if its scraping a popular actor such as Tom Holland, so if the program freezes, don't worry,  its still runnning in the background
