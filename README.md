@@ -4,7 +4,7 @@ After cloning the repository, simply run the following command:
  `python3 imdbScraper.py -h`. 
  Calling -h will explain in further detail how the CLI operates. As a sample  
  `python3 imdbScraper.py Stanley Kubrick director -s Drama -mg`  
- * Considers the movies **Stanley Kubrick directed ** 
+ * Considers the movies **Stanley Kubrick directed** 
  * Returns statistics as the **-s** flag was specified
  * Returns his best **Drama** movies as that was the flag specified for the **-s** option
  * Returns his top movies as the **-m** flag was specified
